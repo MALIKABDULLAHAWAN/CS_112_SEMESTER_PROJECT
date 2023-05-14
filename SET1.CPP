@@ -6,5 +6,6 @@ int main()
     cin>>x;
     cout<<x;
     //ahsan
+    cout<<" gya hamara project "<<endl;
  return 0;
 }
