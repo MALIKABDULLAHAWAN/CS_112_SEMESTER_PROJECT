@@ -45,6 +45,7 @@ class Builder : public Host
 {
      private:
          char x;
+         int y;
      public:
         void builder_menu()
         {
@@ -54,6 +55,8 @@ class Builder : public Host
             cout << "2. See messages" << endl;
             cout << "3. Add your accounts" << endl;
             cout << "4. Exit" << endl;
+            cout<<"Your choice:"<<endl;
+            cin>> y;
 
 
 
@@ -66,7 +69,13 @@ class Builder : public Host
 
 class Client : public Host
 {
+    private:
+        char z;
+    public:
+      void client_menu()
+      {
 
+      }
 };
 
 int main()
@@ -90,6 +99,8 @@ int main()
         case 3:
            
            break;
+        default:
+           cout<<"Invalid"<<endl;
     }
 
 
