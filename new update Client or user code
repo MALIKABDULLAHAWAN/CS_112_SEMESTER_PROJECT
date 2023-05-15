@@ -1,0 +1,145 @@
+class User : public Host {
+public:
+    User() {
+        cout << "User object created" << endl;
+    }
+
+    ~User() {
+        cout <<        "User object destroyed" << endl;
+    }
+
+    void menu() override {
+        char c;
+        do {
+            cout << "===== User Menu =====" << endl;
+            cout << "1. Search builders" << endl;
+            cout << "2. Send message" << endl;
+            cout << "3. View standard charges" << endl;
+            cout << "4. Calculate surcharge" << endl;
+            cout << "5. Exit" << endl;
+            cout << "Your choice: ";
+            cin >> c;
+
+            switch (c) {
+                case '1':
+                    searchBuilders();
+                    break;
+                case '2':
+                    sendMessage();
+                    break;
+                case '3':
+                    viewStandardCharges();
+                    break;
+                case '4':
+                    calculateSurcharge();
+                    break;
+                case '5':
+                    cout << "Exiting User Menu..." << endl;
+                    break;
+                default:
+                    cout << "Invalid choice. Please try again." << endl;
+                    break;
+            }
+        } while (c != '5');
+    }
+
+    void searchBuilders() {
+        ifstream builders("builders_users.txt");
+
+        if (!builders) {
+            cout << "No builders found!" << endl;
+            return;
+        }
+
+        string line;
+
+        while (getline(builders, line)) {
+            istringstream iss(line);
+            string name, type;
+
+            if (iss >> name >> type) {
+                if (type == "builder")
+                    cout << name << endl;
+            }
+        }
+
+        builders.close();
+    }
+
+    void sendMessage() {
+        string recipient, message;
+
+        cout << "Enter the recipient's name: ";
+        cin.ignore();
+        getline(cin, recipient);
+
+        cout << "Enter your message: ";
+        getline(cin, message);
+
+        ofstream messages("user_messages.txt", ios::app);
+        messages << "To: " << recipient << endl;
+        messages << "Message: " << message << endl;
+
+        cout << "Message sent successfully!" << endl;
+
+        messages.close();
+    }
+
+    void viewStandardCharges() {
+        ifstream charges("standard_charges.txt");
+
+        if (!charges) {
+            cout << "Standard charges not found!" << endl;
+            return;
+        }
+
+        double charge;
+
+        while (charges >> charge) {
+            cout << "Standard Charge: " << charge << endl;
+        }
+
+        charges.close();
+    }
+
+    void calculateSurcharge() {
+        double rate, amount;
+
+        cout << "Enter the surcharge rate: ";
+        cin >> rate;
+
+        cout << "Enter the area in square feet: ";
+        cin >> amount;
+
+        double surcharge = calculateStandardSurcharge(rate, amount);
+
+        cout << "Surcharge Amount: " << surcharge << endl;
+    }
+};
+
+int main() {
+    system("CLS");
+    char choice;
+
+    cout << "Are you a builder or a user? (b/u): ";
+    cin >> choice;
+
+    Host* host = nullptr;
+
+    if (choice == 'b') {
+        host = new Builder();
+    } else if (choice == 'u') {
+        host = new User();
+    } else {
+        cout << "Invalid choice. Exiting..." << endl;
+        return 0;
+    }
+
+    host->menu();
+
+    delete host;
+
+    return 0;
+}
+
+
