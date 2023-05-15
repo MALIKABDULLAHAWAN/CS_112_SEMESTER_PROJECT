@@ -5,6 +5,11 @@
 
 using namespace std;
 
+
+void exit()
+{
+    cout<<"THANK YOU!"<<endl;
+}
 class Host
 {
 private:
@@ -47,6 +52,7 @@ public:
                     upgradeStandardCharges();
                     break;
                 case 4:
+                    exit();
                     break;
                 default:
                     cout << "Invalid Input" << endl;
@@ -311,6 +317,7 @@ public:
                     addAccount();
                     break;
                 case 6:
+                    exit();
                    break;
                 default:
                    cout<<"Input Error"<<endl;
@@ -335,7 +342,7 @@ private:
 public:
     void createProfile()
     {
-        cout << "Enter your name: ";
+        cout << "Client Name: ";
         cin >> client_name;
 
         ofstream profileFile("client_profile.txt");
@@ -364,8 +371,8 @@ public:
             string message;
             getline(cin, message);
 
-            messageFile << "From: " << client_name << endl;
-            messageFile << "To: " << company_name << endl;
+            messageFile << "Client : " << client_name << endl;
+            messageFile << "Company: " << company_name << endl;
             messageFile << "Message: " << message << endl;
             messageFile << "==============================" << endl;
             messageFile.close();
@@ -475,6 +482,7 @@ public:
                    textCompany();
                    break;
                 case 4:
+                   exit();
                    break;
                 default:
                     cout<<"Invalid"<<endl;
@@ -514,5 +522,6 @@ int main()
         default:
            cout<<"Invalid"<<endl;
     }
+    
     return 0;
 }
