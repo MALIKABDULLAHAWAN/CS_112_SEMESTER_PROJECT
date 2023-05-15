@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void exit()
+void exit()               //function to exit the program
 {
     cout<<"THANK YOU!"<<endl;
 }
