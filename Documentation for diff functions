@@ -1,0 +1,151 @@
+void function:
+
+menu() function in the Host class and its derived classes Builder and User.
+createProfile(), openProfile(), upgradeBio(), seeMessages(), addAccounts() functions in the Builder class.
+searchBuilders(), sendMessage(), viewStandardCharges(), calculateSurcharge() functions in the User class.
+These functions do not return a value and perform specific actions or operations.
+
+
+virtual void function:
+
+menu() function in the Host class.
+This function is declared as virtual in the base class and can be overridden in the derived classes to provide different implementations.
+
+
+Getters and Setters:
+
+Getters and setters are used to access and modify the private member variables of a class, respectively. In the provided code, there are no explicit getter or setter functions defined. However, the private member variables in the classes Builder and User can be accessed and modified through the member functions defined in those classes.
+
+
+Constructors:
+
+
+Builder() constructor in the Builder class.
+User() constructor in the User class.
+Constructors are special member functions that are called when an object of a class is created. They initialize the object's member variables and perform any necessary setup operations.
+
+
+Destructors:
+
+
+~Host() destructor in the Host class.
+~Builder() destructor in the Builder class.
+~User() destructor in the User class.
+Destructors are special member functions that are called when an object is destroyed or goes out of scope. They perform cleanup operations, such as releasing resources or freeing memory.
+
+Member Variables:
+
+name, type in the Host class.
+accountType, accountNumber in the Builder class.
+recipient, message in the User class.
+These variables store information specific to the objects of the respective classes.
+
+
+Member Function:
+
+calculateStandardSurcharge(double rate, double amount) in the Host class.
+This function calculates the surcharge based on the rate and amount provided as parameters. It returns the calculated surcharge value.
+
+
+Input/Output Functions:
+
+addBuilderOrUser() in the Host class.
+removeBuilderOrUser() in the Host class.
+upgradeStandardCharges() in the Host class.
+These functions interact with the user through the console and perform input/output operations, such as reading input values, displaying messages, and writing data to files.
+
+
+File Handling Functions:
+
+addBuilderOrUser() in the Host class.
+removeBuilderOrUser() in the Host class.
+upgradeStandardCharges() in the Host class.
+These functions read from or write to files using input/output file streams (ifstream and ofstream). They perform operations like adding or removing entries from a file and upgrading data stored in a file.
+
+
+Control Flow:
+
+The code uses control flow statements like if, else if, else, and switch to control the execution flow and make decisions based on user input or conditions.
+
+
+Dynamic Memory Allocation:
+
+The code uses dynamic memory allocation with the new operator to create objects of the Builder and User classes.
+The dynamically allocated memory is properly deallocated using the delete operator in the main() function.
+
+Inheritance:
+
+The code demonstrates the concept of inheritance by defining the Builder and User classes as derived classes of the Host base class.
+The Builder and User classes inherit the menu() function from the base class and provide their own implementations.
+
+
+Polymorphism:
+
+The code utilizes polymorphism by defining a pure virtual function menu() in the Host class.
+The menu() function is overridden in the derived classes (Builder and User), providing different functionality based on the type of object.
+
+
+Constructors:
+
+The Builder and User classes define constructors that are called when objects of these classes are created.
+The constructors print messages to indicate when the objects are created.
+
+
+Destructors:
+
+The Builder and User classes define destructors that are called when objects of these classes are destroyed.
+The destructors print messages to indicate when the objects are destroyed.
+
+
+Getters and Setters:
+
+The code does not explicitly define getters and setters, but it does include member variables that can be accessed and modified directly.
+
+
+Error Handling:
+
+The code includes error handling for file operations.
+If a file is not found or an operation fails, appropriate error messages are displayed.
+
+
+Looping:
+
+The code uses do-while loops to repeatedly display menus and receive user input until the user chooses to exit.
+
+
+String Manipulation:
+
+The code utilizes various string manipulation operations using the std::string class, such as concatenation, finding substrings, and comparing strings.
+
+
+File Operations:
+
+The code performs file operations using file streams (ifstream and ofstream) to read from and write to files.
+It reads builder and user data from builders_users.txt and stores profile information in builder_profile.txt.
+It also stores messages in builder_messages.txt, user_messages.txt, and account information in builder_accounts.txt.
+
+File Input and Output:
+
+The code uses file streams (ifstream and ofstream) to read data from files and write data to files.
+It demonstrates file input by reading data from files such as builders_users.txt, builder_profile.txt, builder_messages.txt, user_messages.txt, and standard_charges.txt.
+It also demonstrates file output by writing data to files such as builders_users.txt, builder_profile.txt, builder_accounts.txt, and standard_charges.txt.
+
+
+Temporary File:
+
+The code utilizes a temporary file (temp.txt) for file operations involving removal or modification of data.
+When removing a builder or user, the code creates a temporary file, copies all data except the one to be removed, and then renames the temporary file to replace the original file.
+When upgrading standard charges, the code uses a temporary file to overwrite the existing charges with the new value.
+
+
+Command Line Interface:
+
+The code uses a command-line interface to interact with the user.
+It prompts the user with menu options and waits for input.
+Based on the user's input, different actions are performed, such as creating profiles, opening profiles, sending messages, etc.
+
+
+Clearing the Screen:
+
+The code uses the system("CLS") command to clear the console screen before displaying each menu.
+This provides a cleaner and more organized interface for the user.
