@@ -1,5 +1,6 @@
+//A construction management system 
 #include<iostream>
-#include<fstream>
+#include<fstream>       //library for file handling
 #include<sstream>
 
 using namespace std;
@@ -14,7 +15,7 @@ public:
     
     double calculateStandardSurcharge(double rate, double amount) {
     // Calculate the surcharge based on the rate and amount
-    amount = 1000;       //1000 per square feet
+    amount = 1000;               //1000 per square feet
     double surcharge = rate * amount;
     
     // Return the surcharge value
@@ -22,7 +23,7 @@ public:
     }
 
 
-    void menu()
+    void menu()                //Menu Function for owner of app
     {
         do
         {
