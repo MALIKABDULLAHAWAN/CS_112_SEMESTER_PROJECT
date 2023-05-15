@@ -1,0 +1,17 @@
+/* Documentation 
+
+1) double calculateStandardSurcharge(double rate, double amount): This function calculates the surcharge based on the given rate and amount. It multiplies the rate by the fixed amount of 1000 per square foot and returns the surcharge value.
+2) void addBuilderOrUser(): This function allows the user to add a new builder or user to a file named "builders_users.txt". It prompts the user to enter the name and type (builder/user) and appends the information to the file.
+3) void removeBuilderOrUser(): This function allows the user to remove a builder or user from the "builders_users.txt" file. It prompts the user to enter the name of the builder/user to be removed and removes the corresponding entry from the file.
+4) void upgradeStandardCharges(): This function allows the user to upgrade the standard charges by replacing the existing charges in the "standard_charges.txt" file with a new value provided by the user.
+5) void menu(): This is a pure virtual function defined in the Host class. It represents the menu interface for both the Builder and User classes. Each derived class provides its own implementation of the menu.
+6) void createProfile(): This function allows a builder to create their profile by entering their name, address, and contact number. The information is then appended to the "builder_profile.txt" file.
+7) void openProfile(): This function allows a builder to view their profile information stored in the "builder_profile.txt" file.
+8) void upgradeBio(): This function allows a builder to update their profile information (name, address, and contact number) by modifying the "builder_profile.txt" file.
+9) void seeMessages(): This function allows a builder to view messages stored in the "builder_messages.txt" file.
+10) void addAccounts(): This function allows a builder to add their account type and number to the "builder_accounts.txt" file.
+11) void searchBuilders(): This function allows a user to search for builders in the "builders_users.txt" file and display their names.
+12) void sendMessage(): This function allows a user to send a message to a specific builder. The recipient's name and the message are appended to the "user_messages.txt" file.
+13) void viewStandardCharges(): This function allows a user to view the standard charges stored in the "standard_charges.txt" file.
+14) void calculateSurcharge(): This function allows a user to calculate the surcharge amount based on the provided rate and area in square feet. It calls the calculateStandardSurcharge() function and displays the calculated surcharge.
+15) int main(): This is the main function where the program starts. It prompts the user to choose between being a builder or a user, creates the corresponding object, and calls the menu() function to start the interaction with the chosen role. */
