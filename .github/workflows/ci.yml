@@ -1,0 +1,31 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure CMake
+      run: |
+        if [ -f CMakeLists.txt ]; then
+          cmake -B build
+        fi
+
+    - name: Build C++ Code
+      run: |
+        if [ -f CMakeLists.txt ]; then
+          cmake --build build
+        elif [ -f Makefile ] || [ -f makefile ]; then
+          make
+        else
+          # Fallback compilation for loose source files
+          find . -name "*.cpp" -maxdepth 2 -exec g++ -std=c++17 -c {} +
+        fi
